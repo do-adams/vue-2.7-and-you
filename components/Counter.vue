@@ -3,11 +3,14 @@ import { ref } from 'vue'
 
 const props = defineProps({
   count: {
-    default: 0,
-  },
+    default: 0
+  }
 })
 
 const counter = ref(props.count)
+
+const decrement = () => counter.value--
+const increment = () => counter.value++
 </script>
 
 <template>
@@ -18,7 +21,7 @@ const counter = ref(props.count)
       font="mono"
       outline="!none"
       hover:bg="gray-400 opacity-20"
-      @click="counter -= 1"
+      @click="decrement"
     >
       -
     </button>
@@ -29,7 +32,7 @@ const counter = ref(props.count)
       font="mono"
       outline="!none"
       hover:bg="gray-400 opacity-20"
-      @click="counter += 1"
+      @click="increment"
     >
       +
     </button>
